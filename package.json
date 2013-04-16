@@ -1,7 +1,7 @@
 {
   "name": "grunt-jade-handlebars",
   "description": "Convert simple Jade templates containing handlebars to compiled handlebars JSTs.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/prajwalkman/grunt-jade-handlebars",
   "author": {
     "name": "Prajwal K Manjunath",
@@ -28,13 +28,16 @@
   "scripts": {
     "test": "grunt test"
   },
+  "dependencies": {
+    "handlebars": "~1.0.10",
+    "grunt-lib-contrib": "~0.5.1",
+    "jade": "~0.28.2"
+  },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-clean": "~0.4.0",
     "grunt-contrib-nodeunit": "~0.1.2",
-    "grunt-lib-contrib": "~0.5.1",
     "grunt": "~0.4.1",
-    "handlebars": "latest",
     "jade": "latest"
   },
   "peerDependencies": {

@@ -36,6 +36,11 @@ module.exports = function(grunt) {
     return name;
   };
 
+  // Identify the template/partial without its file extension
+  var stringify = function(filename) {
+    return JSON.stringify(filename).split('.')[0]
+  }
+
   grunt.registerMultiTask('jade_handlebars', 'Convert simple Jade templates containing handlebars to compiled handlebars JSTs.', function() {
     var options = this.options({
       namespace: 'JST',
@@ -77,7 +82,9 @@ module.exports = function(grunt) {
         }
       })
       .forEach(function(filepath) {
+        // First compile file contents with Jade
         var jade_tpl = require('jade').compile(grunt.file.read(filepath));
+
         var src = processContent(jade_tpl());
         var Handlebars = require('handlebars');
         var ast, compiled, filename;
@@ -103,14 +110,14 @@ module.exports = function(grunt) {
         if (partialsPathRegex.test(filepath) && isPartial.test(_.last(filepath.split('/')))) {
           filename = processPartialName(filepath);
           if (options.partialsUseNamespace === true) {
-            partials.push('Handlebars.registerPartial('+JSON.stringify(filename)+', '+nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+');');
+            partials.push('Handlebars.registerPartial('+stringify(filename)+', '+nsInfo.namespace+'['+stringify(filename)+'] = '+compiled+');');
           } else {
-            partials.push('Handlebars.registerPartial('+JSON.stringify(filename)+', '+compiled+');');
+            partials.push('Handlebars.registerPartial('+stringify(filename)+', '+compiled+');');
           }
         } else {
           filename = processName(filepath);
           if (options.namespace !== false) {
-            templates.push(nsInfo.namespace+'['+JSON.stringify(filename)+'] = '+compiled+';');
+            templates.push(nsInfo.namespace+'['+stringify(filename)+'] = '+compiled+';');
           } else {
             templates.push(compiled);
           }
