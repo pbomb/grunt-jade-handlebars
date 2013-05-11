@@ -38,8 +38,8 @@ module.exports = function(grunt) {
 
   // Identify the template/partial without its file extension
   var stringify = function(filename) {
-    return JSON.stringify(filename).split('.')[0]
-  }
+    return JSON.stringify(filename.split('.')[0]);
+  };
 
   grunt.registerMultiTask('jade_handlebars', 'Convert simple Jade templates containing handlebars to compiled handlebars JSTs.', function() {
     var options = this.options({
