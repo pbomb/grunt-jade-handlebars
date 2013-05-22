@@ -1,8 +1,8 @@
 /*
  * grunt-jade-handlebars
- * https://github.com/prajwalkman/grunt-jade-handlebars
+ * https://github.com/mattparrish/grunt-jade-handlebars
  *
- * Copyright (c) 2013 Prajwal K Manjunath
+ * Copyright (c) 2013 Matt Parrish
  * Licensed under the MIT license.
  */
 

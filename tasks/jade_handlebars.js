@@ -1,13 +1,13 @@
 /*
  * grunt-jade-handlebars
- * https://github.com/prajwalkman/grunt-jade-handlebars
+ * https://github.com/mattparrish/grunt-jade-handlebars
  *
  * Original plugin (c) 2012 Tim Branyen, contributors
  * https://github.com/gruntjs/grunt-contrib-handlebars
  *
  * Modified by me to include jade in the workflow 
  *
- * Copyright (c) 2013 Prajwal K Manjunath
+ * Copyright (c) 2013 Matt Parrish
  * Licensed under the MIT license.
  */
 
